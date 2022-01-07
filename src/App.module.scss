@@ -10,4 +10,16 @@ body {
   );
 
   height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .content {
+    padding: 1em;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1080px;
+  }
 }

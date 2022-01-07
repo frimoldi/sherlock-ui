@@ -2,6 +2,8 @@ import React from "react"
 
 import styles from "./App.module.scss"
 
+import { Dashboard } from "./pages/Dashboard/Dashboard"
+
 import { NavigationBar } from "./components/NavigationBar/NavigationBar"
 import { Button } from "./components/Button/Button"
 import { useConnectedAccount } from "./hooks/useConnectedAccount"
@@ -29,6 +31,9 @@ function App() {
             (walletIsLoading ? "Loading ..." : "Connect wallet")}
         </Button>
       </NavigationBar>
+      <div className={styles.content}>
+        <Dashboard />
+      </div>
     </div>
   )
 }

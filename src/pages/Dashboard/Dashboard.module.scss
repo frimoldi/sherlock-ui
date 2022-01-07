@@ -1,0 +1,23 @@
+.Dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  & .row {
+    display: flex;
+    flex-direction: row;
+
+    & .box {
+      flex-grow: 1;
+      flex-basis: 50%;
+
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+  }
+}
