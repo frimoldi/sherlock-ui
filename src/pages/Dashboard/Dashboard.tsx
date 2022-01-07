@@ -5,11 +5,6 @@ import { Card } from "../../components/Card/Card"
 
 import styles from "./Dashboard.module.scss"
 
-import { ISherlock__factory } from "../../contracts/types/factories/ISherlock__factory"
-import {
-  SHERLOCK_SMART_CONTRACT_ADDRESS,
-  USDC_SMART_CONTRACT_ADDRESS,
-} from "../../utils/settings"
 import { formatToCurrency } from "../../utils/numbers"
 import { getFirstMoneyOutUSD, getPoolSizeUSD } from "../../sherlock/pool"
 
