@@ -18,8 +18,6 @@ function App() {
     connectedAccount,
   } = useConnectedAccount()
 
-  console.log(connectedAccount)
-
   return (
     <div className={styles.App}>
       <NavigationBar>

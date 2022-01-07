@@ -49,9 +49,6 @@ export const ConnectedAccountProvider: React.FC = ({ children }) => {
 
         const name = await provider.lookupAddress(connectedAccount)
 
-        console.log("name for " + connectedAccount)
-        console.log(name)
-
         setEnsName(name)
       }
     }
@@ -59,7 +56,7 @@ export const ConnectedAccountProvider: React.FC = ({ children }) => {
     try {
       lookupAddress()
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }, [connectedAccount])
 
@@ -71,7 +68,7 @@ export const ConnectedAccountProvider: React.FC = ({ children }) => {
       setLoading(true)
       await provider.send("eth_requestAccounts", [])
     } catch (error) {
-      console.log(error)
+      console.error(error)
     } finally {
       setLoading(false)
     }

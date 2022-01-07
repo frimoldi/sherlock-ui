@@ -15,8 +15,15 @@
       flex-grow: 1;
       flex-basis: 50%;
 
+      text-align: center;
+
       &:not(:last-child) {
         margin-right: 1em;
+      }
+
+      & h2 {
+        margin: 0 0 1em 0;
+        font-size: 1.3em;
       }
     }
   }
