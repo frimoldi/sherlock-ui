@@ -8,10 +8,14 @@ import {
 
 const TOKENS = [
   {
+    name: "USD Coin",
+    symbol: "USDC",
     address: USDC_SMART_CONTRACT_ADDRESS,
     divider: 6,
   },
   {
+    name: "SHERX Token",
+    symbol: "SHERX",
     address: SHERX_SMART_CONTRACT_ADDRESS,
     divider: 18,
   },
@@ -81,3 +85,25 @@ export const getFirstMoneyOutUSD = async (
     console.error(error)
   }
 }
+
+export type StakingPoolData = {
+  symbol: string
+  name: string
+  stake: string
+  apy: string
+}
+
+export const getStakingPoolsData = async (): Promise<StakingPoolData[]> => [
+  {
+    symbol: "USDC",
+    name: "USD Coin",
+    stake: "$30.8M",
+    apy: "2.93%",
+  },
+  {
+    symbol: "SHERX",
+    name: "SHERX Token",
+    stake: "$77.5",
+    apy: "0.00%",
+  },
+]

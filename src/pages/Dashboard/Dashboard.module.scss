@@ -33,4 +33,32 @@
       }
     }
   }
+
+  & .pools {
+    & > *:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    & .poolHeader {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
+    & .poolRow,
+    & .poolHeader {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      & .logo {
+        flex-basis: 50px;
+        flex-grow: 0;
+      }
+
+      & :not(.logo) {
+        flex-grow: 1;
+      }
+    }
+  }
 }
