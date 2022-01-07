@@ -35,6 +35,16 @@ export const Dashboard = () => {
     <div className={styles.Dashboard}>
       <div className={styles.row}>
         <div className={styles.box}>
+          <Card variant="warning">
+            <p>
+              Warning: Do not stake unless you are in the whitelisted guarded
+              launch. <strong>Your funds will be at risk.</strong>
+            </p>
+          </Card>
+        </div>
+      </div>
+      <div className={styles.row}>
+        <div className={styles.box}>
           <Card>
             <h2>TOTAL FUNDS</h2>
             <span className={styles.value}>

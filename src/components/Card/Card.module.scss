@@ -8,4 +8,20 @@
   flex-direction: column;
 
   color: white;
+
+  &.warning {
+    background-color: radial-gradient(
+      100% 93.36% at 0% 6.64%,
+      rgba(160, 108, 247, 0.1) 0%,
+      rgba(82, 32, 166, 0.1) 100%
+    );
+    background-image: radial-gradient(
+      100% 93.36% at 0% 6.64%,
+      rgba(160, 108, 247, 0.1) 0%,
+      rgba(82, 32, 166, 0.1) 100%
+    );
+
+    border: 1px solid rgb(115, 0, 226);
+    padding: 0.5em;
+  }
 }
