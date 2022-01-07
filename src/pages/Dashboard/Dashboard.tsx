@@ -16,10 +16,9 @@ export const Dashboard = () => {
     const loadPoolData = async () => {
       try {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
 
-        const usdBalance = await getPoolSizeUSD(signer)
-        const usdFirstMoneyOut = await getFirstMoneyOutUSD(signer)
+        const usdBalance = await getPoolSizeUSD(provider)
+        const usdFirstMoneyOut = await getFirstMoneyOutUSD(provider)
 
         setPoolBalance(usdBalance)
         setFirstMoneyOut(usdFirstMoneyOut)

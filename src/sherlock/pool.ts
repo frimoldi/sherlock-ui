@@ -18,12 +18,12 @@ const TOKENS = [
 ]
 
 export const getPoolSizeUSD = async (
-  signer: ethers.providers.JsonRpcSigner
+  provider: ethers.providers.Provider
 ): Promise<Number | undefined> => {
   try {
     const sherlock = ISherlock__factory.connect(
       SHERLOCK_SMART_CONTRACT_ADDRESS,
-      signer
+      provider
     )
 
     let totalBalanceUSD = 0.0
@@ -50,12 +50,12 @@ export const getPoolSizeUSD = async (
 }
 
 export const getFirstMoneyOutUSD = async (
-  signer: ethers.providers.JsonRpcSigner
+  provider: ethers.providers.Provider
 ): Promise<Number | undefined> => {
   try {
     const sherlock = ISherlock__factory.connect(
       SHERLOCK_SMART_CONTRACT_ADDRESS,
-      signer
+      provider
     )
 
     let totalFirstMoneyOutUSD = 0.0
