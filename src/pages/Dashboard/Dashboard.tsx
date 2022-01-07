@@ -10,17 +10,12 @@ import {
   SHERLOCK_SMART_CONTRACT_ADDRESS,
   USDC_SMART_CONTRACT_ADDRESS,
 } from "../../utils/settings"
-import { formatBigNumber } from "../../utils/numbers"
-
-const currencyFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 2,
-})
+import { formatToCurrency } from "../../utils/numbers"
+import { getFirstMoneyOutUSD, getPoolSizeUSD } from "../../sherlock/pool"
 
 export const Dashboard = () => {
-  const [poolBalance, setPoolBalance] = useState<ethers.BigNumber>()
-  const [firstMoneyOut, setFirstMoneyOut] = useState<ethers.BigNumber>()
+  const [poolBalance, setPoolBalance] = useState<Number>()
+  const [firstMoneyOut, setFirstMoneyOut] = useState<Number>()
 
   useEffect(() => {
     const loadPoolData = async () => {
@@ -28,20 +23,11 @@ export const Dashboard = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
 
-        const sherlock = ISherlock__factory.connect(
-          SHERLOCK_SMART_CONTRACT_ADDRESS,
-          signer
-        )
+        const usdBalance = await getPoolSizeUSD(signer)
+        const usdFirstMoneyOut = await getFirstMoneyOutUSD(signer)
 
-        const usdcBalance = await sherlock.getStakersPoolBalance(
-          USDC_SMART_CONTRACT_ADDRESS
-        )
-        const usdcFirstMoneyOut = await sherlock.getFirstMoneyOut(
-          USDC_SMART_CONTRACT_ADDRESS
-        )
-
-        setPoolBalance(usdcBalance)
-        setFirstMoneyOut(usdcFirstMoneyOut)
+        setPoolBalance(usdBalance)
+        setFirstMoneyOut(usdFirstMoneyOut)
       } catch (error) {
         console.log(error)
       }
@@ -56,13 +42,17 @@ export const Dashboard = () => {
         <div className={styles.box}>
           <Card>
             <h2>TOTAL FUNDS</h2>
-            <span>{poolBalance && formatBigNumber(poolBalance)}</span>
+            <span className={styles.value}>
+              {poolBalance && formatToCurrency(poolBalance)}
+            </span>
           </Card>
         </div>
         <div className={styles.box}>
           <Card>
             <h2>FIRST MONEY OUT POOL</h2>
-            <span>{firstMoneyOut && formatBigNumber(firstMoneyOut)}</span>
+            <span className={styles.value}>
+              {firstMoneyOut && formatToCurrency(firstMoneyOut)}
+            </span>
           </Card>
         </div>
       </div>
